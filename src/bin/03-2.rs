@@ -15,7 +15,6 @@ fn main() {
         let mask = 1 << i;
         o2.sort_by_key(|x| x & mask);
         let mc = mask & o2[o2.len() / 2];
-        mask & o2[o2.len() / 2 - 1];
         o2 = o2.into_iter().filter(|x| x & mask == mc).collect();
         if o2.len() == 1 {
             break;
@@ -30,10 +29,6 @@ fn main() {
         co2 = co2.into_iter().filter(|x| x & mask == lc).collect();
         if co2.len() == 1 {
             break;
-        }
-        if co2.len() == 0 {
-            dbg!(co2);
-            panic!();
         }
     }
     println!("{:?}", o2[0] * co2[0]);
