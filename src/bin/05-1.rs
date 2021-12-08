@@ -16,9 +16,9 @@ fn main() {
         if l[0] != l[2] && l[1] != l[3] {
             continue;
         }
-        for r in min(l[0], l[2])..=max(l[0], l[2]) {
-            for c in min(l[1], l[3])..=max(l[1], l[3]) {
-                floor[r][c] += 1;
+        for row in &mut floor[min(l[0], l[2])..=max(l[0], l[2])] {
+            for spot in &mut row[min(l[1], l[3])..=max(l[1], l[3])] {
+                *spot += 1;
             }
         }
     }

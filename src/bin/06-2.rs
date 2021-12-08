@@ -7,7 +7,6 @@ fn main() {
     let mut line = String::new();
     stdin.read_line(&mut line).unwrap();
     let mut old = [0u128; 9];
-    let mut new = [0u128; 9];
 
     for fish in line
         .trim()
@@ -19,12 +18,8 @@ fn main() {
     }
 
     for _day in 1..=256 {
-        for i in 1..=8 {
-            new[i - 1] = old[i];
-        }
-        new[8] = old[0];
-        new[6] += old[0];
-        old.copy_from_slice(&new);
+        old.rotate_left(1);
+        old[6] += old[8];
     }
     println!("{:?}", old.iter().sum::<u128>());
 }
