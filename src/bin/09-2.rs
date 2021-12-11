@@ -41,7 +41,7 @@ fn main() -> Result<(), std::io::Error> {
         }
     }}
     // dbg!(s);
-    s.sort();
+    s.sort_unstable();
     s.reverse();
     dbg!(s[..3].iter().product::<usize>());
     Ok(())
