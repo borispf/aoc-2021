@@ -18,8 +18,8 @@ fn main() -> Result<(), std::io::Error> {
             let x = l[0].to_owned();
             let y = l[1].to_owned();
             paper.insert([
-                2i64 * x.parse::<i64>().unwrap(),
-                2i64 * y.parse::<i64>().unwrap(),
+                x.parse::<i64>().unwrap(),
+                y.parse::<i64>().unwrap(),
             ]);
         } else {
             if l[0].len() == 0 {
@@ -28,7 +28,7 @@ fn main() -> Result<(), std::io::Error> {
             let l = l[0].split('=').collect_vec();
             folds.push((
                 (l[0].as_bytes()[l[0].len() - 1] - b'x') as usize,
-                2 * l[1].parse::<i64>().unwrap(),
+                l[1].parse::<i64>().unwrap(),
             ))
         }
     }
@@ -57,13 +57,7 @@ fn print_paper(paper: &HashSet<[i64; 2]>) {
     let max_x = paper.iter().map(|xy| xy[0]).max().unwrap();
     let max_y = paper.iter().map(|xy| xy[1]).max().unwrap();
     for y in 0..=max_y {
-        if y % 2 == 1 {
-            continue;
-        }
         for x in 0..=max_x {
-            if x % 2 == 1 {
-                continue;
-            }
             if paper.contains(&[x, y]) {
                 print!("#");
             } else {
