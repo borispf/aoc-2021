@@ -22,7 +22,7 @@ fn main() -> Result<(), std::io::Error> {
                 y.parse::<i64>().unwrap(),
             ]);
         } else {
-            if l[0].len() == 0 {
+            if l[0].is_empty() {
                 continue;
             }
             let l = l[0].split('=').collect_vec();
@@ -39,17 +39,12 @@ fn main() -> Result<(), std::io::Error> {
         }
         let mut new_marks = Vec::new();
         for mut xy in paper.drain() {
-            // dbg!(xy);
-            let line = 0 + *coord;
-            xy[*axis] = line - (line - xy[*axis]).abs();
-            // dbg!(xy);
+            xy[*axis] = *coord - (*coord - xy[*axis]).abs();
             new_marks.push(xy);
         }
         paper.extend(new_marks);
     }
-    // dbg!(paper.len());
     print_paper(&paper);
-    // dbg!(folds);
     Ok(())
 }
 
