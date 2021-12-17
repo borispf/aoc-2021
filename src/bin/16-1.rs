@@ -6,7 +6,6 @@
 struct BitStream {
     hex: Vec<u8>,
     start: usize,
-    end: usize,
 }
 
 impl BitStream {
@@ -71,11 +70,7 @@ fn solve(hex_str: &str) -> u64 {
             _ => panic!("{}: {}", hex_str, *b as char),
         });
     }
-    version_sum(&mut BitStream {
-        hex: hex,
-        start: 0,
-        end: hex_str.len() * 4,
-    })
+    version_sum(&mut BitStream { hex, start: 0 })
 }
 
 fn main() {

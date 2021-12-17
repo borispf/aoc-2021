@@ -6,7 +6,6 @@
 struct BitStream {
     hex: Vec<u8>,
     start: usize,
-    end: usize,
 }
 
 impl BitStream {
@@ -74,18 +73,17 @@ fn eval(bs: &mut BitStream) -> u64 {
         5 => {
             assert_eq!(2, sub_values.len());
             (sub_values[0] > sub_values[1]).into()
-        },
+        }
         // less than
         6 => {
             assert_eq!(2, sub_values.len());
             (sub_values[0] < sub_values[1]).into()
-        },
+        }
         // equal
         7 => {
             assert_eq!(2, sub_values.len());
             (sub_values[0] == sub_values[1]).into()
-
-        },
+        }
         _ => panic!(),
     }
 }
@@ -99,11 +97,7 @@ fn solve(hex_str: &str) -> u64 {
             _ => panic!("{}: {}", hex_str, *b as char),
         });
     }
-    eval(&mut BitStream {
-        hex: hex,
-        start: 0,
-        end: hex_str.len() * 4,
-    })
+    eval(&mut BitStream { hex, start: 0 })
 }
 
 fn main() {

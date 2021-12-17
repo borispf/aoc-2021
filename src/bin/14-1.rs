@@ -59,7 +59,7 @@ fn mid_counts(l: u8, r: u8, depth: usize, rules: &RuleMap, cache: &mut CountCach
         }
     }
     cache.insert((l, r, depth), counts.clone());
-    return counts;
+    counts
 }
 
 fn print_rules(rules: &RuleMap) {

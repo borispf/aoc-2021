@@ -10,8 +10,7 @@ fn main() -> Result<(), std::io::Error> {
         stdin.lock().read_to_string(&mut s)?;
         s
     };
-    let mut r = Vec::new();
-    r.push(Vec::new());
+    let mut r = vec![Vec::new()];
     for line in input.split_whitespace() {
         let mut l = vec![10000; 1];
         l.extend(line.as_bytes().iter().map(|b| (*b - b'0') as isize));

@@ -90,16 +90,16 @@ fn n4(i: usize, j: usize) -> [(usize, usize); 4] {
     ]
 }
 
-fn print_map(r: &Vec<Vec<isize>>) {
-    for row in r {
-        for v in row {
-            if *v <= 9 {
-                print!("{}", *v);
-            }
-            else {
-                print!("#");
-            }
-        }
-        println!();
-    }
-}
+// fn print_map(r: &Vec<Vec<isize>>) {
+//     for row in r {
+//         for v in row {
+//             if *v <= 9 {
+//                 print!("{}", *v);
+//             }
+//             else {
+//                 print!("#");
+//             }
+//         }
+//         println!();
+//     }
+// }
