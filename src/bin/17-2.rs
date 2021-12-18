@@ -39,6 +39,6 @@ fn solve(tx: Target, ty: Target) -> usize {
 
 #[test]
 fn test_examples() {
-    assert_eq!(true, is_hit((0, 0, 7, 2), &(20..=30), &(-10..=-5)));
+    assert!(is_hit((0, 0, 7, 2), &(20..=30), &(-10..=-5)));
     assert_eq!(112, solve(20..=30, -10..=-5));
 }
